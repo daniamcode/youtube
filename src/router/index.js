@@ -3,24 +3,30 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Chess from '../views/Chess.vue'
 import Nba from '../views/Nba.vue'
+import Detail from '../views/Detail.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
   },
   {
     path: '/chess',
-    name: 'Chess',
+    name: 'chess',
     component: Chess
   },
   {
     path: '/nba',
-    name: 'Nba',
+    name: 'nba',
     component: Nba
+  },
+  {
+    path: '/videos/:categories/:title',
+    name: 'video',
+    component: Detail
   }
 ]
 
