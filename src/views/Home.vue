@@ -1,7 +1,7 @@
 <template>
 <div>
   <h1 class="home">
-    My favourite youtube videos by subject!
+    My {{videoCount}} favourite youtube videos by subject!
   </h1>
   <br>
   <button @click="toggleVideoForm" class="btn btn-primary">Add new video</button>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'Home',
   data () {
@@ -68,6 +68,11 @@ export default {
         link: ''
       }
     }
+  },
+  computed: {
+    ...mapGetters([
+      'videoCount'
+    ])// computed not methods cause we want to listen to changes
   },
   methods: {
     ...mapActions([
