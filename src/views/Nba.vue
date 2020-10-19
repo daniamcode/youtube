@@ -1,16 +1,27 @@
 <template>
-  <VideoTable subject="nba" :videos="nba"/>
+  <VideoTable subject="NBA" :videos="nba" :handleSubmit="handleSubmit" />
 </template>
 
 <script>
 import VideoTable from '../components/VideoTable.vue'
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   components: {
     VideoTable
   },
   data () {
     return {
+    }
+  },
+  methods: {
+    ...mapActions(['removeVideo']),
+    handleSubmit (id) {
+      const subject = 'nba'
+      const payload = {
+        subject,
+        id
+      }
+      this.removeVideo(payload)
     }
   },
   computed: {
@@ -20,48 +31,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.video__header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: flex-end;
-    width: 800px;
-    height: 47px;
-    margin: auto;
-    background-color: lemonchiffon;
-    border-bottom: 1px solid;
-}
-.video__container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 800px;
-    height: 278px;
-    margin: auto;
-    background-color: #fffff0;
-    border-bottom: 1px solid;
-}
-
-.video__title, .video__header-title {
-    width: 20%;
-    border: 1px solid;
-}
-
-.video__category, .video__header-category {
-    width: 20%;
-    border: 1px solid;
-}
-
-.video__header-link {
-    width: 448px;
-    border: 1px solid;
-}
-
-.video__link {
-    width: 448px;
-    height: 252px;
-}
-</style>
