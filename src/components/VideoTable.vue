@@ -10,7 +10,7 @@
       <div class="video__left-container">
         <div class="video__text-container">
         <div class="video__title">
-          <router-link :to="`/videos/${videos}/${item.id}`">{{
+          <router-link :to="`/videos/${subject.toLowerCase()}/${item.id}`">{{
             item.title
           }}</router-link>
         </div>

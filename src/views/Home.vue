@@ -23,7 +23,7 @@
         <b-form-select
           id="input-3"
           v-model="formData.subject"
-          :options="['chess', 'nba']"
+          :options="['barça','chess','nba']"
           required
         ></b-form-select>
       </b-form-group>
@@ -72,6 +72,7 @@ export default {
   computed: {
     ...mapGetters([
       'videoCount',
+      'videoBarçaCount',
       'videoChessCount',
       'videoNbaCount'
 
@@ -87,6 +88,9 @@ export default {
     handleSubmit () {
       const { subject, title, category, link } = this.formData
       let id = 0
+      if (subject === 'barça') {
+        id = this.videoBarçaCount + 1
+      }
       if (subject === 'chess') {
         id = this.videoChessCount + 1
       }

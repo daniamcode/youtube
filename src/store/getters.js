@@ -1,6 +1,9 @@
 export default {
   videoCount: (state) => {
-    return state.chess.length + state.nba.length
+    return state.barça.length + state.chess.length + state.nba.length
+  },
+  videoBarçaCount: (state) => {
+    return state.barça.length
   },
   videoChessCount: (state) => {
     return state.chess.length

@@ -25,13 +25,15 @@ export default {
   },
   computed: {
     ...mapState([
+      'barça',
       'chess',
       'nba'
     ])
   },
   mounted () {
-    const video = this[this.$route.params.categories][this.$route.params.title]// bracket notation, result of this[this.$route.params.categories] will be this.chess or this.nba, and then we get the position on the second part of the expression
-    console.log(video)
+    // eslint-disable-next-line eqeqeq
+    const index = this[this.$route.params.categories].findIndex(video => video.id == this.$route.params.id)
+    const video = this[this.$route.params.categories][index]// bracket notation, result of this[this.$route.params.categories] will be this.chess or this.nba, and then we get the position on the second part of the expression
     this.video = video
   }
 }
