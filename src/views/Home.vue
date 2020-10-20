@@ -71,7 +71,10 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'videoCount'
+      'videoCount',
+      'videoChessCount',
+      'videoNbaCount'
+
     ])// computed not methods cause we want to listen to changes
   },
   methods: {
@@ -83,12 +86,20 @@ export default {
     },
     handleSubmit () {
       const { subject, title, category, link } = this.formData
+      let id = 0
+      if (subject === 'chess') {
+        id = this.videoChessCount + 1
+      }
+      if (subject === 'nba') {
+        id = this.videoNbaCount + 1
+      }
       const payload = {
         subject,
         video: {
           title,
           category,
-          link
+          link,
+          id
         }
       }
       this.addVideo(payload)
