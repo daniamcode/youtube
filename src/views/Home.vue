@@ -48,7 +48,7 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button class="submit-button" type="submit" variant="primary">Submit</b-button>
       <b-button type="reset" variant="danger">Reset</b-button>
     </b-form>
     </div>
@@ -124,5 +124,9 @@ export default {
 .form__container {
   width: 30%;
   margin: auto;
+}
+
+.submit-button {
+  margin-right: 10px;
 }
 </style>
